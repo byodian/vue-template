@@ -1,0 +1,46 @@
+module.exports = {
+  extends: [
+    // Use the Standard config as the base
+    // https://github.com/stylelint/stylelint-config-standard
+    'stylelint-config-standard',
+    // Enforce a standard order for CSS properties
+    // https://github.com/stormwarning/stylelint-config-recess-order
+    'stylelint-config-recess-order'
+    // Override rules that would interfere with Prettier
+    // https://github.com/shannonmoeller/stylelint-config-prettier
+  ],
+  plugins: [
+    'stylelint-scss'
+  ],
+  rules: {
+    'comment-empty-line-before': [
+      'always',
+      {
+        ignore: ['stylelint-commands', 'after-comment']
+      }
+    ],
+    'max-empty-lines': 2,
+    'color-hex-case': 'upper',
+    'max-nesting-depth': 2,
+    'number-leading-zero': 'never',
+    // Limit the number of universal selectors in a selector,
+    // to avoid very slow selectors
+    'selector-max-universal': 1,
+    // Disallow allow global element/type selectors in scoped modules
+    'selector-max-type': [0, { ignore: ['child', 'descendant', 'compounded'] }],
+    // ===
+    // SCSS
+    // ===
+    'scss/dollar-variable-colon-space-after': 'always',
+    'scss/dollar-variable-colon-space-before': 'never',
+    'scss/dollar-variable-no-missing-interpolation': true,
+    'scss/dollar-variable-pattern': [/^[a-z-]+$/],
+    'scss/double-slash-comment-whitespace-inside': 'always',
+    'scss/operator-no-newline-before': true,
+    'scss/operator-no-unspaced': true,
+    'scss/selector-no-redundant-nesting-selector': true,
+    // Allow SCSS and CSS module keywords beginning with `@`
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': true
+  }
+}
