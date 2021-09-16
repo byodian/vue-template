@@ -12,8 +12,8 @@ const requireComponent = require.context(
   '.',
   // Do not look in subdirectories
   false,
-  // Only include "App|Panel-" prefixed .vue|js files
-  /(App)\w+\.(vue|js)$/
+  // Only include "App|Base-" prefixed .vue|js files
+  /(App|Base)\w+\.(vue|js)$/
 )
 
 // For each matching file name...

@@ -1,7 +1,12 @@
 import defaultSettings from '@/settings'
 
-const title = defaultSettings.title || 'qidu admin'
+const title = defaultSettings.title || 'vue-template'
 
+/**
+ *
+ * @param {String} pageTitle 标签名称
+ * @returns {String}
+ */
 export default function getPageTitle(pageTitle) {
   if (pageTitle) {
     return `${pageTitle} - ${title}`

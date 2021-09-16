@@ -1,3 +1,3 @@
 export default {
-  title: '未来邻里乡村大屏'
+  title: 'vue-template'
 }
