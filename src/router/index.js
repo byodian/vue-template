@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import routes from './routes'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
+import getPageTitle from '@/utils/get-page-title'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,7 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  document.title = getPageTitle(to.meta.title)
   // start progress bar
   NProgress.start()
   NProgress.done()

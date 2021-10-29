@@ -2,6 +2,12 @@ const path = require('path')
 const resolve = dir => {
   return path.join(__dirname, dir)
 }
+
+const defaultSettings = require('./src/settings')
+
+// page title
+const name = defaultSettings.title || 'Vue Template'
+
 module.exports = {
   publicPath: '/',
   outputDir: 'dist',
@@ -13,6 +19,17 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   crossorigin: 'anonymous',
+  configureWebpack: {
+    // provide the app's title in webpack's name field, so that
+    // it can be accessed in index.html to inject the correct title.
+    name: name,
+    resolve: {
+      alias: {
+        '@': resolve('src')
+      }
+    }
+  },
+
   chainWebpack: config => {
     config.module
       .rule('svg')
@@ -29,16 +46,8 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
       .end()
-    config.resolve.alias
-      .set('@', resolve('src'))
-      // .set('@src', resolve('src'))
-      // .set('@components', resolve('src/components'))
-      // .set('@layouts', resolve('src/layouts'))
-      // .set('@utils', resolve('src/utils'))
-      // .set('@views', resolve('src/views'))
-      // .set('@assets', resolve('src/assets'))
-      // .set('@styles', resolve('src/styles'))
-      // .set('@plugins', resolve('src/plugins'))
+    // config.resolve.alias
+    //   .set('@', resolve('src'))
   },
   css: {
     // Enable CSS source maps.
