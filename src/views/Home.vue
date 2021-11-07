@@ -1,10 +1,44 @@
 <template>
-  <div class="app-main flex flex-col items-center">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-    <div class="flex gap-x-4">
+  <div class="app-main flex flex-col items-center gap-y-8">
+    <Heading msg="Using Icon" />
+    <div id="font-awesome" class="flex gap-x-4 items-center">
       <BaseIcon name="spinner" prefix="fas" pulse />
       <BaseIcon name="align-left" prefix="fas" flip="both" />
       <BaseIcon name="android" prefix="fab" size="lg" />
+    </div>
+    <div
+      id="svg-inline"
+      class="flex gap-x-4 items-center"
+    >
+      <BaseIcon
+        prefix="icon"
+        name="mercedes"
+        type="svg-inline"
+        width="2em"
+      />
+      <BaseIcon
+        prefix="icon"
+        name="bmw"
+        type="svg-inline"
+        width="2em"
+        color="#2a64ab"
+      />
+    </div>
+    <div class="flex gap-x-4 items-center">
+      <BaseIcon
+        prefix="icon"
+        name="bmw"
+        type="font-class"
+        font-size="2em"
+        color="#2a64ab"
+      />
+      <BaseIcon
+        prefix="icon"
+        name="bing"
+        type="font-class"
+        font-size="2em"
+        color="#007DAA"
+      />
     </div>
     <BaseSvgIcon icon-class="car" width="200px" />
     <div class="svg-img">
@@ -15,17 +49,17 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import Heading from '@/components/Heading.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    Heading
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .svg {
   &-img {
     width: 200px;
