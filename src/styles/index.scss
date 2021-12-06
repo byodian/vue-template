@@ -1,5 +1,18 @@
 @import './variables.scss';
 @import './element-ui.scss';
 @import './mixins.scss';
-
+@import './iconfont.css';
 // 其他的全局样式
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+}
