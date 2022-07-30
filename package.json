@@ -29,7 +29,7 @@
     "@vue/cli-service": "~4.5.0",
     "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
+    "eslint": "^7.4.0",
     "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^9.5.0",
     "postcss": "^8.3.3",
@@ -54,5 +54,8 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "workspaces": [
+    "packages/eslint-config"
+  ]
 }
