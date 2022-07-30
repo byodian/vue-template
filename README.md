@@ -1,9 +1,29 @@
 # vue-template
 
-## [模式和环境变量](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
+## 项目 scripts
+
+安装依赖
+```
+yarn install
+```
+
+启动项目
+```
+yarn serve
+```
 
 ## eslint
-使用 eslint 检查 HTML、JS 代码格式
+eslint 扩展依赖 `@byodian/eslint-config-@mono-repo` 作为本地依赖（路径 `packages/eslint-config`)通过 [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) 的方式引入，该依赖包通过 `yarn install` 就可以安装到 `node_modules` 中。
+
+**package.json**
+```
+{
+  "private": true,
+  "workspaces": ["packages/eslint-config"]
+}
+```
+
+当然，我们也可以单独将 eslint 扩展依赖发布为一个 npm 包。
 
 ### 设置 vscode
 保存文件时自动修改
@@ -100,3 +120,6 @@ yarn 命令
 - [4 ways to fake an API in frontend development](https://www.valentinog.com/blog/fake/)
 - [Tests and mocking the API](https://github.com/bencodezen/vue-enterprise-boilerplate/blob/main/docs/tests.md#the-mock-api)
 - [Mock object](https://en.wikipedia.org/wiki/Mock_object)
+- [模式和环境变量](https://cli.vuejs.org/zh/guide/mode-and-env.html#%E6%A8%A1%E5%BC%8F)
+- [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/)
+- [npm workspaces](https://docs.npmjs.com/cli/v8/using-npm/workspaces)
