@@ -1,3 +1,14 @@
+<script>
+import Heading from '@/components/Heading.vue'
+
+export default {
+  name: 'AppHome',
+  components: {
+    Heading
+  }
+}
+</script>
+
 <template>
   <div class="app-main flex flex-col items-center gap-y-8">
     <Heading msg="Using Icon" />
@@ -48,17 +59,6 @@
   </div>
 </template>
 
-<script>
-import Heading from '@/components/Heading.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    Heading
-  }
-}
-</script>
-
 <style lang="scss" scoped>
 .svg {
   &-img {
@@ -66,11 +66,11 @@ export default {
   }
 
   &-background {
-    background-image: url(~@/assets/svg/grimreaper-isolated.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     width: 300px;
     height: 300px;
+    background-image: url('~@/assets/svg/grimreaper-isolated.svg');
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
   }
 }

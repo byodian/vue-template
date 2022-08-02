@@ -1,9 +1,4 @@
 import Vue from 'vue'
-// @ts-ignore
-import App from './App.vue'
-import store from './store'
-
-Vue.config.productionTip = false
 
 // 引入 tailwind CSS
 import 'tailwindcss/tailwind.css'
@@ -12,15 +7,20 @@ import '@/styles/index.scss'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-Vue.use(ElementUI)
+import router from './router'
+// @ts-expect-error
+import App from './App.vue'
+import store from './store'
 
-import { globalComponent } from '@/plugins'
-Vue.use(globalComponent) // 全局注册名称以 `Base` 为前缀的组件
+import { globalComponent } from '@/plugins' // 全局注册名称以 `Base` 为前缀的组件
 
 // 结合 Webpack loader - svg-sprite-loader, 引入 SVG Sprit
 import './icons'
 
-import router from './router'
+Vue.config.productionTip = false
+
+Vue.use(ElementUI)
+Vue.use(globalComponent)
 new Vue({
   store,
   router,

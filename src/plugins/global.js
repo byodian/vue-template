@@ -4,7 +4,7 @@
 // https://github.com/bencodezen/vue-enterprise-boilerplate/blob/main/src/components/_globals.js
 
 // https://webpack.js.org/guides/dependency-management/#require-context
-// @ts-ignore
+// @ts-expect-error
 
 const install = function(Vue) {
   const requireComponent = require.context(
@@ -29,7 +29,7 @@ const install = function(Vue) {
       // Split up kebabs
       .split('-')
       // Upper case
-      .map((kebab) => kebab.charAt(0).toUpperCase() + kebab.slice(1))
+      .map(kebab => kebab.charAt(0).toUpperCase() + kebab.slice(1))
       // Concatenated
       .join('')
 

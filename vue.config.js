@@ -1,5 +1,5 @@
 const path = require('path')
-const resolve = dir => {
+const resolve = (dir) => {
   return path.join(__dirname, dir)
 }
 
@@ -22,7 +22,7 @@ module.exports = {
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
     // it can be accessed in index.html to inject the correct title.
-    name: name,
+    name,
     resolve: {
       alias: {
         '@': resolve('src')
@@ -30,7 +30,7 @@ module.exports = {
     }
   },
 
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))

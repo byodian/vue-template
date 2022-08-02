@@ -8,9 +8,8 @@ const title = defaultSettings.title || 'vue-template'
  * @returns {String}
  */
 export default function getPageTitle(pageTitle) {
-  if (pageTitle) {
-    return `${pageTitle} - ${title}`
-  }
+  if (pageTitle) { return `${pageTitle} - ${title}` }
+
   return `${title}`
 }
 
@@ -19,12 +18,12 @@ export default function getPageTitle(pageTitle) {
  * @param {Number} delay 延迟时间
  */
 export function debounce(fn, delay) {
-  var timer
+  let timer
   return function() {
-    var context = this
-    var args = arguments
+    const context = this
+    const args = arguments
     clearTimeout(timer)
-    timer = setTimeout(function() {
+    timer = setTimeout(() => {
       fn.apply(context, args)
     }, delay)
   }

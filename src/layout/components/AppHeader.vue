@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'AppHeader'
+}
+</script>
+
 <template>
   <header class="app-header p-12">
     <router-link to="/">
@@ -8,12 +14,6 @@
     </router-link>
   </header>
 </template>
-
-<script>
-export default {
-  name: 'AppHeader'
-}
-</script>
 
 <style lang="scss">
  .app-header {

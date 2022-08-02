@@ -28,30 +28,25 @@ const service = axios.create({
 const requestKey = {}
 
 // 获取请求内容字符串
-const generateDataStr = config => {
+const generateDataStr = (config) => {
   const { method, data, params } = config
   let dataStr = ''
-  if (method === 'get' && params) {
-    dataStr = typeof params !== 'string' ? JSON.stringify(params) : params
-  }
-  if (method === 'post' && data) {
-    dataStr = typeof data !== 'string' ? JSON.stringify(data) : data
-  }
+  if (method === 'get' && params) { dataStr = typeof params !== 'string' ? JSON.stringify(params) : params }
+
+  if (method === 'post' && data) { dataStr = typeof data !== 'string' ? JSON.stringify(data) : data }
+
   return dataStr
 }
 
 // request拦截器
-service.interceptors.request.use(config => {
+service.interceptors.request.use((config) => {
   // 如果当前网络有问题，直接报错
-  if (!window.navigator.onLine) {
-    throw new RequestError('请检查您的网络情况')
-  }
+  if (!window.navigator.onLine) { throw new RequestError('请检查您的网络情况') }
+
   // 清除无用的cache
-  Object.keys(requestKey).forEach(item => {
+  Object.keys(requestKey).forEach((item) => {
     const { isResponse, timestamp } = requestKey[item]
-    if (isResponse && Date.now() - timestamp >= 300) {
-      delete requestKey[item]
-    }
+    if (isResponse && Date.now() - timestamp >= 300) { delete requestKey[item] }
   })
   // 阻止频繁请求和重复请求
   const { method, url, data, unique } = config
@@ -86,19 +81,17 @@ service.interceptors.request.use(config => {
     'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate'
   }
   return config
-}, error => {
+}, (error) => {
   throw new RequestError(error)
 })
 
 // response拦截器
-service.interceptors.response.use(response => {
+service.interceptors.response.use((response) => {
   // 如果请求返回，对应的requestKey.isResponse设置为true
   const { method, url } = response.config
   const dataStr = generateDataStr(response.config)
   const hash = `${method}${url}${dataStr}`
-  if (requestKey[hash]) {
-    requestKey[hash].isResponse = true
-  }
+  if (requestKey[hash]) { requestKey[hash].isResponse = true }
 
   // 数据处理
   const { status, data, message } = response.data
@@ -122,7 +115,7 @@ service.interceptors.response.use(response => {
   }
 
   return Promise.reject(new RequestError(customMessage || message))
-}, error => {
+}, (error) => {
   // 自定义错误类直接抛出
   if (error instanceof RequestError) {
     throw error
@@ -131,13 +124,11 @@ service.interceptors.response.use(response => {
     const { config: { method, url }, code } = error
     const dataStr = generateDataStr(error.config)
     const hash = `${method}${url}${dataStr}`
-    if (requestKey[hash]) {
-      requestKey[hash].isResponse = true
-    }
+    if (requestKey[hash]) { requestKey[hash].isResponse = true }
+
     // 超时
-    if (code === 504) {
-      throw new RequestError('服务端响应超时')
-    }
+    if (code === 504) { throw new RequestError('服务端响应超时') }
+
     // 处理HTTP 错误 如404
     throw new RequestError(error.message)
   }

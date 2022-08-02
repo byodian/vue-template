@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 // 加载 iconfont 资源
 import './iconfont'
 

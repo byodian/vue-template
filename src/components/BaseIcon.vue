@@ -1,7 +1,7 @@
 <script>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSpinner, faAlignLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAlignLeft, faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { faAndroid } from '@fortawesome/free-brands-svg-icons'
 library.add(faSpinner, faAlignLeft, faAndroid)
 
@@ -50,11 +50,7 @@ export default {
     },
     // svg-inline class
     svgClass() {
-      if (this.className) {
-        return 'svg-icon ' + this.className
-      } else {
-        return 'svg-icon'
-      }
+      if (this.className) { return `svg-icon ${this.className}` } else { return 'svg-icon' }
     },
     // svg-inline style
     svgStyle() {
@@ -68,11 +64,7 @@ export default {
     // font class 图标 class
     fontIconClass() {
       const constantClasses = `iconfont font-class-icon ${this.prefix}-${this.name}`
-      if (this.className) {
-        return constantClasses
-      } else {
-        return constantClasses + this.className
-      }
+      if (this.className) { return constantClasses } else { return constantClasses + this.className }
     },
     fontIconStyle() {
       return {
