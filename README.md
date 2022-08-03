@@ -4,26 +4,16 @@
 
 安装依赖
 ```
-pnpm install
+yarn
 ```
 
 启动项目
 ```
-pnpm serve
+yarn serve
 ```
 
 ## eslint
-eslint 扩展依赖 `@byodian/eslint-config-@mono-repo` 作为本地依赖（路径 `packages/eslint-config`)通过 [yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/) 的方式引入，该依赖包通过 `yarn install` 就可以安装到 `node_modules` 中。
-
-**package.json**
-```
-{
-  "private": true,
-  "workspaces": ["packages/eslint-config"]
-}
-```
-
-当然，我们也可以单独将 eslint 扩展依赖发布为一个 npm 包。
+eslint 使用个人的 eslint 配置依赖 `@byodian/eslint-config` 
 
 ### 设置 vscode
 保存文件时自动修改
