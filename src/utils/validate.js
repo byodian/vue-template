@@ -9,7 +9,7 @@ export const isNumber = (rule, value, callback) => {
 
 // 验证IP
 export const isValidIP = (rule, value, callback) => {
-  var reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
+  const reg = /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/
   if (!reg.test(value)) {
     callback(new Error('请输入正确IP'))
   } else {
@@ -27,7 +27,7 @@ export const checkInputBlank = (rule, value, callback) => {
 
 // 验证手机
 export const validatePhone = (rule, value, callback) => {
-  var regExp = /^[1][0-9]{10}$/
+  const regExp = /^[1][0-9]{10}$/
   if (value && regExp.test(value) === false) {
     callback(new Error('非法的号码格式'))
   } else {

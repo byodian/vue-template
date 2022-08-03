@@ -1,13 +1,13 @@
 @font-face {
-  font-family: "iconfont"; /* Project id 2919913 */
+  font-family: iconfont; /* Project id 2919913 */
   src:
-    url("//at.alicdn.com/t/font_2919913_rflcdbt1eqe.woff2?t=1636251811125") format("woff2"),
-    url("//at.alicdn.com/t/font_2919913_rflcdbt1eqe.woff?t=1636251811125") format("woff"),
-    url("//at.alicdn.com/t/font_2919913_rflcdbt1eqe.ttf?t=1636251811125") format("truetype");
+    url('//at.alicdn.com/t/font_2919913_rflcdbt1eqe.woff2?t=1636251811125') format('woff2'),
+    url('//at.alicdn.com/t/font_2919913_rflcdbt1eqe.woff?t=1636251811125') format('woff'),
+    url('//at.alicdn.com/t/font_2919913_rflcdbt1eqe.ttf?t=1636251811125') format('truetype');
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: iconfont !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -15,13 +15,13 @@
 }
 
 .icon-bing::before {
-  content: "\e60d";
+  content: '\e60d';
 }
 
 .icon-honda::before {
-  content: "\e60b";
+  content: '\e60b';
 }
 
 .icon-bmw::before {
-  content: "\e60c";
+  content: '\e60c';
 }

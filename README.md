@@ -4,12 +4,12 @@
 
 安装依赖
 ```
-yarn install
+pnpm install
 ```
 
 启动项目
 ```
-yarn serve
+pnpm serve
 ```
 
 ## eslint
@@ -31,8 +31,8 @@ eslint 扩展依赖 `@byodian/eslint-config-@mono-repo` 作为本地依赖（路
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-  },
+    "source.fixAll.eslint": true
+  }
 }
 ```
 
@@ -56,8 +56,8 @@ yarn 命令
 ```json
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.stylelint": true,
-  },
+    "source.fixAll.stylelint": true
+  }
 }
 ```
 
@@ -70,43 +70,43 @@ yarn 命令
    ```
 2. 新建 `db.json` 文件
    ```json
-    {
-      "people": [
-        {
-          "id": 1,
-          "name": "byo",
-          "age": 12
-        },
-        {
-          "id": 2,
-          "name": "dian",
-          "age": 23
-        }
-      ],
-      "posts": [
-        {
-          "userId": 1,
-          "id": 1,
-          "title": "vue 开发指南",
-          "content": "vue 开发指南"
-        }
-      ]
-    }
+   {
+     "people": [
+       {
+         "id": 1,
+         "name": "byo",
+         "age": 12
+       },
+       {
+         "id": 2,
+         "name": "dian",
+         "age": 23
+       }
+     ],
+     "posts": [
+       {
+         "userId": 1,
+         "id": 1,
+         "title": "vue 开发指南",
+         "content": "vue 开发指南"
+       }
+     ]
+   }
    ```
 3. 设置 npm script，`package.json`
     ```json
     {
-        "script": {
-          "json:server": "json-server --watch db.json -p 3000"
-        }
+      "script": {
+        "json:server": "json-server --watch db.json -p 3000"
+      }
     }
     ```
 4. 启动服务器，终端运行命令 `npm run json:server`
 5. 开始 api 请求
    ```js
-    fetch('http://localhost:3000/posts')
-      .then(response => response.json())
-      .then(data => console.log(data))
+   fetch('http://localhost:3000/posts')
+     .then(response => response.json())
+     .then(data => console.log(data))
    ```
 ### 使用现有 Fake REST API
 - [{JSON} Placeholder](https://jsonplaceholder.typicode.com/)

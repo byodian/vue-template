@@ -115,11 +115,11 @@ export default {
   height: 1em;
   overflow: hidden;
   vertical-align: -.15em;
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .iconfont {
-  font-family: "iconfont" !important;
+  font-family: iconfont !important;
   font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -129,7 +129,7 @@ export default {
 .font-class-icon {
   display: block;
   min-height: 1rem;
-  line-height: 1;
   font-size: 1rem;
+  line-height: 1;
 }
 </style>

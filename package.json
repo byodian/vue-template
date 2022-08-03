@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:style": "stylelint '**/*.{vue,html,css,scss}' --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -22,15 +23,16 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/eslint-parser": "^7.18.9",
+    "@byodian/eslint-config": "^0.1.3",
     "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "autoprefixer": "^9",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.4.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^8.20.0",
     "lint-staged": "^9.5.0",
     "postcss": "^8.3.3",
     "postcss-html": "^1.3.0",
@@ -50,12 +52,9 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "!(*iconfon).js|*.{jsx,vue}": [
+    "*.{jsx,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
-  },
-  "workspaces": [
-    "packages/eslint-config"
-  ]
+  }
 }

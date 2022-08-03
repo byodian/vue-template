@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: 'AppHeader'
+}
+</script>
+
 <template>
   <header class="app-header p-12">
     <router-link to="/">
@@ -9,14 +15,8 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: 'AppHeader'
-}
-</script>
-
 <style lang="scss">
- .app-header {
+  .app-header {
     a {
       font-weight: bold;
       color: #2C3E50;
@@ -25,5 +25,5 @@ export default {
         color: #42B983;
       }
     }
- }
+  }
 </style>
